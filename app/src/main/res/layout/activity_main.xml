@@ -4,24 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/cardview_dark_background"
     tools:context=".MainActivity">
 
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3"
-        />
+        app:layout_constraintGuide_end="472dp" />
+
     <TextView
         android:id="@+id/tvProgress"
         android:layout_width="0dp"
@@ -29,9 +22,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="bottom|right"
+        android:text=""
         android:textColor="@color/white"
-        android:textSize="25sp"
-        android:text="ProgressText"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tvSeven"
         app:layout_constraintEnd_toStartOf="@+id/tvSign"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProgress" />
 
     <TextView
         android:id="@+id/tvSign"
@@ -133,7 +126,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvEight" />
 
     <TextView
-        android:id="@+id/tvMultiple"
+        android:id="@+id/tvMultiply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/round_shape_orange"
@@ -195,7 +188,7 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvMultiple"
+        app:layout_constraintStart_toStartOf="@+id/tvMultiply"
         app:layout_constraintTop_toTopOf="@+id/tvSix" />
 
     <TextView
@@ -288,22 +281,6 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvPlus"
         app:layout_constraintTop_toTopOf="@+id/tvDot" />
-
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="right|center"
-        android:text=""
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:background="@color/purple_700"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <ImageView
         android:id="@+id/back"

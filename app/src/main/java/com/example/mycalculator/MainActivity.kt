@@ -18,14 +18,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        //setContentView(R.layout.activity_main)
         val view = binding.root
         setContentView(view)
 
+        binding.tvZero.setOnClickListener(this)
         binding.tvOne.setOnClickListener(this)
         binding.tvTwo.setOnClickListener(this)
-        binding.tvZero.setOnClickListener(this)
+        binding.tvThree.setOnClickListener(this)
+        binding.tvFour.setOnClickListener(this)
+        binding.tvFive.setOnClickListener(this)
+        binding.tvSix.setOnClickListener(this)
+        binding.tvSeven.setOnClickListener(this)
+        binding.tvEight.setOnClickListener(this)
+        binding.tvNine.setOnClickListener(this)
         binding.tvPlus.setOnClickListener {
+            clickOperator(it)
+        }
+        binding.tvMinus.setOnClickListener {
+            clickOperator(it)
+        }
+        binding.tvDivide.setOnClickListener {
+            clickOperator(it)
+        }
+        binding.tvMultiply.setOnClickListener {
             clickOperator(it)
         }
         binding.back.setOnClickListener {
@@ -44,11 +59,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (lastOperator == "")
         {
             lastOperand = converter(lastOperand)
-            if(binding.tvResult.text.toString().isNotEmpty())
+            if(binding.tvProgress.text.toString().isNotEmpty())
             {
-                var result = binding.tvResult.text.toString().toInt()
+                var result = binding.tvProgress.text.toString().toInt()
                 result = converter(result)
-                binding.tvResult.text = result.toString()
+                binding.tvProgress.text = result.toString()
             }
         }
 
@@ -82,7 +97,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             lastOperator = textView.text.toString()
             if(lastOperator == "=") {
                 lastOperator = ""
-                binding.tvResult.text = lastOperand.toString()
+                binding.tvProgress.text = lastOperand.toString()
             }
             displayExpression()
             return
@@ -99,7 +114,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if(lastOperator == "=")
             lastOperator = ""
 
-        binding.tvResult.text = result
+        binding.tvProgress.text = result
 
         inputNums.clear()
         displayExpression()
@@ -112,6 +127,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             result = (op1 + op2).toString()
         else if(operator == "-")
             result = (op1 - op2).toString()
+        else if(operator == "×")
+            result = (op1 * op2).toString()
+        else if(operator == "÷")
+            result = (op1 / op2).toString()
+        else if(operator == "%")
+            result = "$result%"
         return result
     }
 
